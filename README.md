@@ -25,7 +25,7 @@ Install pypresence with **`pip`**
 
 For the latest development version:
 
-### `pip install https://github.com/qwertyquerty/pypresence/archive/master.zip`
+### `pip install https://github.com/InactiveGaming13/pypresence/archive/master.zip`
 
 For the latest stable version:
 
