@@ -18,6 +18,7 @@ class Presence(BaseClient):
                start: int = None, end: int = None,
                large_image: str = None, large_text: str = None,
                small_image: str = None, small_text: str = None,
+               type: int = 0,
                party_id: str = None, party_size: list = None,
                join: str = None, spectate: str = None,
                match: str = None, buttons: list = None,
@@ -26,8 +27,8 @@ class Presence(BaseClient):
         if payload_override is None:
             payload = Payload.set_activity(pid=pid, state=state, details=details, start=start, end=end,
                                            large_image=large_image, large_text=large_text,
-                                           small_image=small_image, small_text=small_text, party_id=party_id,
-                                           party_size=party_size, join=join, spectate=spectate,
+                                           small_image=small_image, small_text=small_text, type=type,
+                                           party_id=party_id, party_size=party_size, join=join, spectate=spectate,
                                            match=match, buttons=buttons, instance=instance, activity=True)
         else:
             payload = payload_override
@@ -60,13 +61,15 @@ class AioPresence(BaseClient):
                      start: int = None, end: int = None,
                      large_image: str = None, large_text: str = None,
                      small_image: str = None, small_text: str = None,
+                     type: int = 0,
                      party_id: str = None, party_size: list = None,
                      join: str = None, spectate: str = None,
                      match: str = None, buttons: list = None,
                      instance: bool = True):
         payload = Payload.set_activity(pid=pid, state=state, details=details, start=start, end=end,
                                        large_image=large_image, large_text=large_text,
-                                       small_image=small_image, small_text=small_text, party_id=party_id,
+                                       small_image=small_image, small_text=small_text,
+                                       type=type, party_id=party_id,
                                        party_size=party_size, join=join, spectate=spectate,
                                        match=match, buttons=buttons, instance=instance, activity=True)
         self.send_data(1, payload)

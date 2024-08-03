@@ -26,6 +26,7 @@ class Payload:
                      start: int = None, end: int = None,
                      large_image: str = None, large_text: str = None,
                      small_image: str = None, small_text: str = None,
+                     type: int = None,
                      party_id: str = None, party_size: list = None,
                      join: str = None, spectate: str = None,
                      match: str = None, buttons: list = None,
@@ -50,6 +51,7 @@ class Payload:
                         "start": start,
                         "end": end
                     },
+                    "type": type,
                     "assets": {
                         "large_image": large_image,
                         "large_text": large_text,
