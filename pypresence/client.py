@@ -306,7 +306,6 @@ class AioClient(BaseClient):
         return await self.read_output()
 
     async def set_activity(self, pid: int = os.getpid(),
-                           name: str = None,
                            state: str = None, details: str = None,
                            start: int = None, end: int = None,
                            large_image: str = None, large_text: str = None,
@@ -316,7 +315,7 @@ class AioClient(BaseClient):
                            join: str = None, spectate: str = None,
                            buttons: list = None,
                            match: str = None, instance: bool = True):
-        payload = Payload.set_activity(pid, name, state, details, start, end, large_image, large_text,
+        payload = Payload.set_activity(pid, state, details, start, end, large_image, large_text,
                                        small_image, small_text, type, party_id, party_size, join, spectate,
                                        match, buttons, instance, activity=True)
         self.send_data(1, payload)

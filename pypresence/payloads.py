@@ -21,7 +21,7 @@ class Payload:
         return time.time()
 
     @classmethod
-    def set_activity(cls, pid: int = os.getpid(), name: str = None,
+    def set_activity(cls, pid: int = os.getpid(),
                      state: str = None, details: str = None,
                      start: int = None, end: int = None,
                      large_image: str = None, large_text: str = None,
@@ -45,7 +45,6 @@ class Payload:
             clear = True
         else:
             act_details = {
-                    "name": name,
                     "state": state,
                     "details": details,
                     "timestamps": {
