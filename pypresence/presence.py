@@ -14,6 +14,7 @@ class Presence(BaseClient):
         super().__init__(*args, **kwargs)
 
     def update(self, pid: int = os.getpid(),
+               name: str = None,
                state: str = None, details: str = None,
                start: int = None, end: int = None,
                large_image: str = None, large_text: str = None,
@@ -25,7 +26,7 @@ class Presence(BaseClient):
                instance: bool = True, payload_override: dict = None):
 
         if payload_override is None:
-            payload = Payload.set_activity(pid=pid, state=state, details=details, start=start, end=end,
+            payload = Payload.set_activity(pid=pid, name=name, state=state, details=details, start=start, end=end,
                                            large_image=large_image, large_text=large_text,
                                            small_image=small_image, small_text=small_text, type=type,
                                            party_id=party_id, party_size=party_size, join=join, spectate=spectate,
@@ -57,6 +58,7 @@ class AioPresence(BaseClient):
         super().__init__(*args, **kwargs, isasync=True)
 
     async def update(self, pid: int = os.getpid(),
+                     name: str = None,
                      state: str = None, details: str = None,
                      start: int = None, end: int = None,
                      large_image: str = None, large_text: str = None,
@@ -66,7 +68,7 @@ class AioPresence(BaseClient):
                      join: str = None, spectate: str = None,
                      match: str = None, buttons: list = None,
                      instance: bool = True):
-        payload = Payload.set_activity(pid=pid, state=state, details=details, start=start, end=end,
+        payload = Payload.set_activity(pid=pid, name=name, state=state, details=details, start=start, end=end,
                                        large_image=large_image, large_text=large_text,
                                        small_image=small_image, small_text=small_text,
                                        type=type, party_id=party_id,
